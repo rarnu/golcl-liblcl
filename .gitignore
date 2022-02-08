@@ -1,0 +1,9 @@
+.DS_Store
+lib/
+link*.res
+ppas*.sh
+.vscode/
+.idea/
+*.lps
+
+
