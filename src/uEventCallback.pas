@@ -27,6 +27,8 @@ uses
   LMessages,
   Grids,
   uLinkLabel,
+  SynEdit,
+  LCLType,
   fgl;
 
 const
@@ -106,8 +108,6 @@ type
     class procedure OnTNotifyEvent_OnDropDown(Sender: TObject);
     class procedure OnTNotifyEvent_OnSelectionChanged(Sender: TObject);
     class procedure OnTNotifyEvent_OnCloseUp(Sender: TObject);
-
-
 
     class function OnTHelpEvent_OnHelp(Command: Word; Data: PtrInt; var CallHelp: Boolean): Boolean;
     class procedure OnTShortCutEvent_OnShortCut(var Msg: TLMKey; var Handled: Boolean);
@@ -218,6 +218,17 @@ type
     class procedure OnTUserCheckboxBitmapEvent_OnUserCheckboxBitmap(Sender: TObject; const aCol, aRow: Integer; const CheckedState: TCheckboxState; var ABitmap: TBitmap);
     class procedure OnTValidateEntryEvent_OnValidateEntry(sender: TObject; aCol, aRow: Integer; const OldValue: string; var NewValue: String);
     class procedure OnTOnPrepareCanvasEvent_OnPrepareCanvas(sender: TObject; aCol, aRow: Integer; aState: TGridDrawState);
+
+    // TSynEdit
+    class procedure OnTSynMouseLinkEvent_OnMouseLink(Sender: TObject; X, Y: Integer; var AllowMouseLink: Boolean);
+    class procedure OnTMouseEvent_OnClickLink(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    // TSynCompletion
+    class procedure OnTCodeCompletionEvent_OnCodeCompletion(var Value: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
+    class procedure OnTNotifyEvent_OnKeyCompletePrefix(Sender: TObject);
+    class procedure OnTNotifyEvent_OnKeyNextChar(Sender: TObject);
+    class procedure OnTNotifyEvent_OnKeyPrevChar(Sender: TObject);
+    class procedure OnTNotifyEvent_OnPositionChanged(Sender: TObject);
+    class procedure OnTSynBaseCompletionSearchPosition_OnSearchPosition(var APosition :integer);
     //--------------------------------------------------------------------------
 
     class procedure Add(AObj: TObject; AEvent: Pointer; AId: NativeUInt);
@@ -1073,6 +1084,60 @@ class procedure TEventClass.OnTOnPrepareCanvasEvent_OnPrepareCanvas(
   sender: TObject; aCol, aRow: Integer; aState: TGridDrawState);
 begin
   SendEvent(Sender, @TEventClass.OnTOnPrepareCanvasEvent_OnPrepareCanvas, [Sender, aCol, aRow, PWord(@aState)^]);
+end;
+
+class procedure TEventClass.OnTSynMouseLinkEvent_OnMouseLink(Sender: TObject;
+  X, Y: Integer; var AllowMouseLink: Boolean);
+begin
+  SendEvent(Sender, @TEventClass.OnTSynMouseLinkEvent_OnMouseLink, [Sender, X, Y, @AllowMouseLink]);
+end;
+
+class procedure TEventClass.OnTMouseEvent_OnClickLink(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  SendEvent(Sender, @TEventClass.OnTMouseEvent_OnClickLink, [Sender, Ord(Button), PWord(@Shift)^, X, Y]);
+end;
+
+class procedure TEventClass.OnTCodeCompletionEvent_OnCodeCompletion(
+  var Value: string; SourceValue: string; var SourceStart, SourceEnd: TPoint;
+  KeyChar: TUTF8Char; Shift: TShiftState);
+var
+  LS: PChar;
+  PSS, PSE: ^TPoint;
+begin
+  LS := PChar(Value);
+  PSS := @SourceStart;
+  PSE := @SourceEnd;
+  SendEvent(nil, @TEventClass.OnTCodeCompletionEvent_OnCodeCompletion, [Pointer(@LS), PChar(SourceValue), @PSS, @PSE, PChar(KeyChar), PWord(@Shift)^]);
+  Value:= LS;
+  SourceStart := PSS^;
+  SourceEnd := PSE^;
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnKeyCompletePrefix(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnKeyCompletePrefix, [Sender]);
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnKeyNextChar(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnKeyNextChar, [Sender]);
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnKeyPrevChar(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnKeyPrevChar, [Sender]);
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnPositionChanged(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnPositionChanged, [Sender]);
+end;
+
+class procedure TEventClass.OnTSynBaseCompletionSearchPosition_OnSearchPosition(
+  var APosition: integer);
+begin
+  SendEvent(nil, @TEventClass.OnTSynBaseCompletionSearchPosition_OnSearchPosition, [@APosition]);
 end;
 
 class procedure TEventClass.OnTDrawCellEvent_OnDrawCell(Sender: TObject; ACol,
