@@ -3,6 +3,7 @@
 cd ..
 
 mkdir -p lib/x86_64-linux
+mkdir -p release
 
 fpc -Tlinux -Px86_64 -MObjFPC -Scghi -O3 -l -vewnhibq \
     -Filib/x86_64-linux \
@@ -34,7 +35,7 @@ fpc -Tlinux -Px86_64 -MObjFPC -Scghi -O3 -l -vewnhibq \
     -Fu. \
     -FUlib/x86_64-linux \
     -FE. \
-    -oliblcl_x86_64.so \
+    -orelease/liblcl.so \
     -dLCL -dLCLgtk2 -dRMLCLTRUNK \
     liblcl.lpr
  

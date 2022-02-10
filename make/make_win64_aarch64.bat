@@ -1,10 +1,10 @@
 CD ..
 
-MD lib\x86_64-win64
+MD lib\aarch64-win64
 MD release
 
-fpc -Twin64 -Px86_64 -MObjFPC -Scghi -O3 -l -vewnhibq -WG ^
-    -Filib\x86_64-win64 ^
+fpc -Twin64 -Paarch64 -MObjFPC -Scghi -O3 -l -vewnhibq -WG ^
+    -Filib\aarch64-win64 ^
     -Fisrc ^
     -Fisrc\mylcl ^
     -Fisrc\userdefines ^
@@ -29,9 +29,9 @@ fpc -Twin64 -Px86_64 -MObjFPC -Scghi -O3 -l -vewnhibq -WG ^
     -Fulazarus\synedit ^
     -Filazatus\synedit ^
     -Fu. ^
-    -FUlib\x86_64-win64 ^
+    -FUlib\aarch64-win64 ^
     -FE. ^
-    -orelease\liblcl.dll ^
+    -orelease\liblcla.dll ^
     -dLCL -dLCLwin32  ^
     liblcl.lpr
  

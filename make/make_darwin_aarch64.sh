@@ -3,6 +3,7 @@
 cd ..
 
 mkdir -p lib/aarch64-darwin
+mkdir -p release
 
 fpc -Tdarwin -Paarch64 -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
     -Filib/aarch64-darwin \
@@ -33,7 +34,7 @@ fpc -Tdarwin -Paarch64 -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
     -Fu. \
     -FUlib/aarch64-darwin \
     -FE. \
-    -oliblcl_aarch64.dylib \
+    -orelease/liblcla.dylib \
     -dLCL -dLCLcocoa -dCocoa \
     liblcl.lpr
  

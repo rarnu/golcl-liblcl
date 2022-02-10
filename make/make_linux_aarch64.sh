@@ -3,6 +3,7 @@
 cd ..
 
 mkdir -p lib/aarch64-linux
+mkdir -p release
 
 fpc -Tlinux -Paarch64 -MObjFPC -Scghi -O3 -l -vewnhibq \
     -Filib/aarch64-linux \
@@ -34,7 +35,7 @@ fpc -Tlinux -Paarch64 -MObjFPC -Scghi -O3 -l -vewnhibq \
     -Fu. \
     -FUlib/aarch64-linux \
     -FE. \
-    -oliblcl_aarch64.so \
+    -orelease/liblcla.so \
     -dLCL -dLCLgtk2 -dRMLCLTRUNK \
     liblcl.lpr
  

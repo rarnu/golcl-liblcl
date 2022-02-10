@@ -3,6 +3,7 @@
 cd ..
 
 mkdir -p lib/x86_64-darwin
+mkdir -p release
 
 fpc -Tdarwin -Px86_64 -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
     -Filib/x86_64-darwin \
@@ -33,7 +34,7 @@ fpc -Tdarwin -Px86_64 -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
     -Fu. \
     -FUlib/x86_64-darwin \
     -FE. \
-    -oliblcl_x86_64.dylib \
+    -orelease/liblcl.dylib \
     -dLCL -dLCLcocoa -dCocoa \
     liblcl.lpr
  
