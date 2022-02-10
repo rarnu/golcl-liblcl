@@ -29,6 +29,8 @@ fpc -Tlinux -Paarch64 -MObjFPC -Scghi -O3 -l -vewnhibq \
     -Fulazarus/datetimectrls \
     -Filazarus/datetimectrls \
     -Fulazarus/cairocanvas \
+    -Fulazarus/synedit \
+    -Filazarus/synedit \
     -Fu. \
     -FUlib/aarch64-linux \
     -FE. \

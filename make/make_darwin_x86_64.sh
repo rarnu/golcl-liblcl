@@ -28,6 +28,8 @@ fpc -Tdarwin -Px86_64 -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
     -Filazarus/printers/cocoa \
     -Fulazarus/datetimectrls \
     -Filazarus/datetimectrls \
+    -Fulazarus/synedit \
+    -Filazarus/synedit \
     -Fu. \
     -FUlib/x86_64-darwin \
     -FE. \

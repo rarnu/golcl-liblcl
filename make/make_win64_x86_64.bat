@@ -25,6 +25,8 @@ fpc -Twin64 -Px86_64 -MObjFPC -Scghi -O3 -l -vewnhibq -WG ^
     -Filazarus\printers\win32 ^
     -Fulazarus\datetimectrls ^
     -Filazarus\datetimectrls ^
+    -Fulazarus\synedit ^
+    -Filazatus\synedit ^
     -Fu. ^
     -FUlib\x86_64-win64 ^
     -FE. ^
