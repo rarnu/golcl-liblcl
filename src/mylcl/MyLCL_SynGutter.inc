@@ -1,3 +1,52 @@
+procedure SynGutter_Free(AObj: TSynGutter); extdecl;
+begin
+  handleExceptionBegin
+  AObj.Free;
+  handleExceptionEnd
+end;
+
+function SynGutter_ClassName(AObj: TSynGutter): PChar; extdecl;
+begin
+  handleExceptionBegin
+  Result := ToPChar(AObj.ClassName);
+  handleExceptionEnd
+end;
+
+function SynGutter_GetHashCode(AObj: TSynGutter): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.GetHashCode;
+  handleExceptionEnd
+end;
+
+function SynGutter_Equals(AObj: TSynGutter; AOther: TObject): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.Equals(AOther);
+  handleExceptionEnd
+end;
+
+function SynGutter_ClassType(AObj: TSynGutter): TClass; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.ClassType;
+  handleExceptionEnd
+end;
+
+function SynGutter_InstanceSize(AObj: TSynGutter): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.InstanceSize;
+  handleExceptionEnd
+end;
+
+function SynGutter_InheritsFrom(AObj: TSynGutter; AClass: TClass): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.InheritsFrom(AClass);
+  handleExceptionEnd
+end;
+
 function SynGutter_GetAutoSize(AObj: TSynGutter): LongBool; extdecl;
 begin
   handleExceptionBegin
@@ -68,6 +117,13 @@ exports
   SynGutter_GetVisible,
   SynGutter_SetVisible,
   SynGutter_GetWidth,
-  SynGutter_SetWidth;
+  SynGutter_SetWidth,
+  SynGutter_Free,
+  SynGutter_ClassName,
+  SynGutter_GetHashCode,
+  SynGutter_Equals,
+  SynGutter_ClassType,
+  SynGutter_InstanceSize,
+  SynGutter_InheritsFrom;
 
 

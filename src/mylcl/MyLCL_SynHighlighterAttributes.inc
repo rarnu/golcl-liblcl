@@ -1,3 +1,52 @@
+procedure SynHighlighterAttributes_Free(AObj: TSynHighlighterAttributes); extdecl;
+begin
+  handleExceptionBegin
+  AObj.Free;
+  handleExceptionEnd
+end;
+
+function SynHighlighterAttributes_ClassName(AObj: TSynHighlighterAttributes): PChar; extdecl;
+begin
+  handleExceptionBegin
+  Result := ToPchar(AObj.ClassName);
+  handleExceptionEnd
+end;
+
+function SynHighlighterAttributes_GetHashCode(AObj: TSynHighlighterAttributes): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.GetHashCode;
+  handleExceptionEnd
+end;
+
+function SynHighlighterAttributes_Equals(AObj: TSynHighlighterAttributes; AOther: TObject): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.Equals(AOther);
+  handleExceptionEnd
+end;
+
+function SynHighlighterAttributes_ClassType(AObj: TSynHighlighterAttributes): TClass; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.ClassType;
+  handleExceptionEnd
+end;
+
+function SynHighlighterAttributes_InstanceSize(AObj: TSynHighlighterAttributes): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.InstanceSize;
+  handleExceptionEnd
+end;
+
+function SynHighlighterAttributes_InheritsFrom(AObj: TSynHighlighterAttributes; AClass: TClass): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.InheritsFrom(AClass);
+  handleExceptionEnd
+end;
+
 function SynHighlighterAttributes_StaticClassType: TClass; extdecl;
 begin
   Result := TSynHighlighterAttributes;
@@ -228,5 +277,12 @@ exports
   SynHighlighterAttributes_GetUnderlinePriority,
   SynHighlighterAttributes_SetUnderlinePriority,
   SynHighlighterAttributes_GetStrikeOutPriority,
-  SynHighlighterAttributes_SetStrikeOutPriority;
+  SynHighlighterAttributes_SetStrikeOutPriority,
+  SynHighlighterAttributes_ClassName,
+  SynHighlighterAttributes_Free,
+  SynHighlighterAttributes_GetHashCode,
+  SynHighlighterAttributes_Equals,
+  SynHighlighterAttributes_ClassType,
+  SynHighlighterAttributes_InstanceSize,
+  SynHighlighterAttributes_InheritsFrom;
 

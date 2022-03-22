@@ -54,6 +54,13 @@ begin
   handleExceptionEnd
 end;
 
+procedure SynEdit_Redo(AObj: TSynEdit); extdecl;
+begin
+  handleExceptionBegin
+  AObj.Redo;
+  handleExceptionEnd
+end;
+
 procedure SynEdit_SelectAll(AObj: TSynEdit); extdecl;
 begin
   handleExceptionBegin
@@ -670,6 +677,20 @@ begin
   handleExceptionEnd
 end;
 
+function SynEdit_GetLines(AObj: TSynEdit): TStrings; extdecl;
+begin
+  handleExceptionBegin
+  Result :=  AObj.Lines;
+  handleExceptionEnd
+end;
+
+procedure SynEdit_SetLines(AObj: TSynEdit; AValue: TStrings); extdecl;
+begin
+  handleExceptionBegin
+  AObj.Lines := AValue;
+  handleExceptionEnd
+end;
+
 function SynEdit_GetParentColor(AObj: TSynEdit): LongBool; extdecl;
 begin
   handleExceptionBegin
@@ -751,6 +772,20 @@ procedure SynEdit_SetReadOnly(AObj: TSynEdit; AValue: LongBool); extdecl;
 begin
   handleExceptionBegin
   AObj.ReadOnly := AValue;
+  handleExceptionEnd
+end;
+
+function SynEdit_GetScrollBars(AObj: TSynEdit): TScrollStyle; extdecl;
+begin
+  handleExceptionBegin
+  Result :=  AObj.ScrollBars;
+  handleExceptionEnd
+end;
+
+procedure SynEdit_SetScrollBars(AObj: TSynEdit; AValue: TScrollStyle); extdecl;
+begin
+  handleExceptionBegin
+  AObj.ScrollBars := AValue;
   handleExceptionEnd
 end;
 
@@ -947,6 +982,13 @@ function SynEdit_GetCanUndo(AObj: TSynEdit): LongBool; extdecl;
 begin
   handleExceptionBegin
   Result :=  AObj.CanUndo;
+  handleExceptionEnd
+end;
+
+function SynEdit_GetCanRedo(AObj: TSynEdit): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result :=  AObj.CanRedo;
   handleExceptionEnd
 end;
 
@@ -1651,6 +1693,7 @@ exports
   SynEdit_CutToClipboard,
   SynEdit_PasteFromClipboard,
   SynEdit_Undo,
+  SynEdit_Redo,
   SynEdit_SelectAll,
   SynEdit_CanFocus,
   SynEdit_ContainsControl,
@@ -1739,6 +1782,8 @@ exports
   SynEdit_SetFont,
   SynEdit_GetHideSelection,
   SynEdit_SetHideSelection,
+  SynEdit_GetLines,
+  SynEdit_SetLines,
   SynEdit_GetParentColor,
   SynEdit_SetParentColor,
   SynEdit_GetParentDoubleBuffered,
@@ -1751,6 +1796,8 @@ exports
   SynEdit_SetPopupMenu,
   SynEdit_GetReadOnly,
   SynEdit_SetReadOnly,
+  SynEdit_GetScrollBars,
+  SynEdit_SetScrollBars,
   SynEdit_GetShowHint,
   SynEdit_SetShowHint,
   SynEdit_GetTabOrder,
@@ -1779,6 +1826,7 @@ exports
   SynEdit_SetOnMouseMove,
   SynEdit_SetOnMouseUp,
   SynEdit_GetCanUndo,
+  SynEdit_GetCanRedo,
   SynEdit_GetModified,
   SynEdit_SetModified,
   SynEdit_GetSelStart,

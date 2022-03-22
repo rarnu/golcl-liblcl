@@ -339,6 +339,111 @@ begin
   Result := TSynCompletion;
 end;
 
+function SynCompletion_ClassName(AObj: TSynCompletion): PChar; extdecl;
+begin
+  handleExceptionBegin
+  Result := ToPChar(AObj.ClassName);
+  handleExceptionEnd
+end;
+
+function SynCompletion_GetHashCode(AObj: TSynCompletion): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.GetHashCode;
+  handleExceptionEnd
+end;
+
+function SynCompletion_Equals(AObj: TSynCompletion; AOther: TObject): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.Equals(AOther);
+  handleExceptionEnd
+end;
+
+function SynCompletion_ClassType(AObj: TSynCompletion): TClass; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.ClassType;
+  handleExceptionEnd
+end;
+
+function SynCompletion_InstanceSize(AObj: TSynCompletion): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.InstanceSize;
+  handleExceptionEnd
+end;
+
+function SynCompletion_InheritsFrom(AObj: TSynCompletion; AClass: TClass): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.InheritsFrom(AClass);
+  handleExceptionEnd
+end;
+
+function SynCompletion_FindComponent(AObj: TSynCompletion; AName: PChar): TComponent; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.FindComponent(AName);
+  handleExceptionEnd
+end;
+
+function SynCompletion_GetNamePath(AObj: TSynCompletion): PChar; extdecl;
+begin
+  handleExceptionBegin
+  Result := ToPchar(AObj.GetNamePath());
+  handleExceptionEnd
+end;
+
+function SynCompletion_HasParent(AObj: TSynCompletion): LongBool; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.HasParent;
+  handleExceptionEnd
+end;
+
+procedure SynCompletion_Assign(AObj: TSynCompletion; AOther: TPersistent); extdecl;
+begin
+  handleExceptionBegin
+  AObj.Assign(AOther);
+  handleExceptionEnd
+end;
+
+function SynCompletion_GetComponentCount(AObj: TSynCompletion): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.ComponentCount;
+  handleExceptionEnd
+end;
+
+function SynCompletion_GetComponentIndex(AObj: TSynCompletion): Integer; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.ComponentIndex;
+  handleExceptionEnd
+end;
+
+procedure SynCompletion_SetComponentIndex(AObj: TSynCompletion; AIndex: Integer); extdecl;
+begin
+  handleExceptionBegin
+  AObj.ComponentIndex:= AIndex;
+  handleExceptionEnd
+end;
+
+function SynCompletion_GetComponents(AObj: TSynCompletion; AIndex: Integer): TComponent; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.Components[AIndex];
+  handleExceptionEnd
+end;
+
+function SynCompletion_GetOwner(AObj: TSynCompletion): TComponent; extdecl;
+begin
+  handleExceptionBegin
+  Result := AObj.Owner;
+  handleExceptionEnd
+end;
+
 exports
   SynCompletion_Create,
   SynCompletion_Free,
@@ -388,5 +493,20 @@ exports
   SynCompletion_Deactivate,
   SynCompletion_Execute,
   SynCompletion_IsActive,
-  SynCompletion_StaticClassType;
+  SynCompletion_StaticClassType,
+  SynCompletion_ClassName,
+  SynCompletion_GetHashCode,
+  SynCompletion_Equals,
+  SynCompletion_ClassType,
+  SynCompletion_InstanceSize,
+  SynCompletion_InheritsFrom,
+  SynCompletion_FindComponent,
+  SynCompletion_GetNamePath,
+  SynCompletion_HasParent,
+  SynCompletion_Assign,
+  SynCompletion_GetComponentCount,
+  SynCompletion_GetComponentIndex,
+  SynCompletion_SetComponentIndex,
+  SynCompletion_GetComponents,
+  SynCompletion_GetOwner;
 
