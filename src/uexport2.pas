@@ -1,22 +1,3 @@
-//{$ifdef windows}
-//unit uExport2;
-
-//{$mode delphi}
-
-//{$I ExtDecl.inc}
-
-//interface
-
-//implementation
-
-//uses
-//  Classes, SysUtils,
-//  {$I UseAll.inc},
-//  uControlPatchs, uExceptionHandle;
-  
-//{$endif windows}
-
-{$I MyLCL_UpDown.inc}  //BASECLASS:TWinControl
 {$I MyLCL_ProgressBar.inc}  //BASECLASS:TWinControl
 {$I MyLCL_DateTimePicker.inc}  //BASECLASS:TWinControl
 {$I MyLCL_MonthCalendar.inc}  //BASECLASS:TWinControl
@@ -50,8 +31,6 @@
 {$I MyLCL_CollectionItem.inc}  //BASECLASS:TObject
 {$I MyLCL_StatusPanels.inc}  //BASECLASS:TObject
 {$I MyLCL_StatusPanel.inc}  //BASECLASS:TObject
+{$I MyLCL_SpinEdit.inc}  //BASECLASS:TWinControl
+{$I MyLCL_FloatSpinEdit.inc}  //BASECLASS:TWinControl
 
-
-//{$ifdef windows}
-//end.
-//{$endif windows}

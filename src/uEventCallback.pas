@@ -231,6 +231,18 @@ type
     class procedure OnTSynBaseCompletionSearchPosition_OnSearchPosition(var APosition :integer);
     //--------------------------------------------------------------------------
 
+    class procedure OnTAcceptFileNameEvent_OnAcceptDirectory(Sender: TObject; var Value: String);
+    class procedure OnTNotifyEvent_OnButtonClick(Sender: TObject);
+
+    class procedure OnTNotifyEvent_OnColorChanged(Sender: TObject);
+
+    class procedure OnTCheckItemChange_OnItemChange(Sender: TObject; AIndex: Integer);
+
+
+    class procedure OnTUTF8KeyPressEvent_OnUTF8KeyPress(Sender: TObject; var UTF8Key: TUTF8Char);
+
+
+
     class procedure Add(AObj: TObject; AEvent: Pointer; AId: NativeUInt);
     class procedure Remove(AObj: TObject; AEvent: Pointer);
     class procedure ThreadProc;
@@ -1138,6 +1150,38 @@ class procedure TEventClass.OnTSynBaseCompletionSearchPosition_OnSearchPosition(
   var APosition: integer);
 begin
   SendEvent(nil, @TEventClass.OnTSynBaseCompletionSearchPosition_OnSearchPosition, [@APosition]);
+end;
+
+class procedure TEventClass.OnTAcceptFileNameEvent_OnAcceptDirectory(Sender: TObject;
+  var Value: String);
+var
+  LS: PChar;
+begin
+  LS := PChar(Value);
+  SendEvent(Sender, @TEventClass.OnTAcceptFileNameEvent_OnAcceptDirectory, [Sender, Pointer(@LS)]);
+  Value := LS;
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnButtonClick(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnButtonClick, [Sender]);
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnColorChanged(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnColorChanged, [Sender]);
+end;
+
+class procedure TEventClass.OnTCheckItemChange_OnItemChange(Sender: TObject;
+  AIndex: Integer);
+begin
+  SendEvent(Sender, @TEventClass.OnTCheckItemChange_OnItemChange, [Sender, AIndex]);
+end;
+
+class procedure TEventClass.OnTUTF8KeyPressEvent_OnUTF8KeyPress(
+  Sender: TObject; var UTF8Key: TUTF8Char);
+begin
+  SendEvent(Sender, @TEventClass.OnTUTF8KeyPressEvent_OnUTF8KeyPress, [Sender, @UTF8Key]);
 end;
 
 class procedure TEventClass.OnTDrawCellEvent_OnDrawCell(Sender: TObject; ACol,

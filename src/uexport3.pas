@@ -1,22 +1,5 @@
-//{$ifdef windows}
-//unit uExport3;
-
-//{$mode delphi}
-
-//{$I ExtDecl.inc}
-
-//interface
-
-//implementation
-
-//uses
-//  Classes, SysUtils,
-//  {$I UseAll.inc},
-//  uControlPatchs, uExceptionHandle;
-  
-//{$endif windows}
-
-{$I MyLCL_SpinEdit.inc}  //BASECLASS:TWinControl
+{$I MyLCL_DirectoryEdit.inc}  //BASECLASS:TWinControl
+{$I MyLCL_ColorButton.inc}  //BASECLASS:TControl
 {$I MyLCL_MiniWebview.inc}  //BASECLASS:TWinControl
 {$I MyLCL_Canvas.inc}  //BASECLASS:TObject
 {$I MyLCL_Object.inc}  //BASECLASS:TObject
@@ -51,7 +34,3 @@
 {$I MyLCL_ReplaceDialog.inc}  //BASECLASS:TComponent
 {$I MyLCL_PrinterSetupDialog.inc}  //BASECLASS:TComponent
 
-
-//{$ifdef windows}
-//end.
-//{$endif windows}

@@ -46,6 +46,7 @@
   Spin,
   Printers,
   ComboEx,
+  EditBtn,
   LResources,
 // custom
   uLinkLabel,

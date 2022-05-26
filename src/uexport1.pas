@@ -32,4 +32,4 @@
 {$I MyLCL_RichEdit.inc}  //BASECLASS:TWinControl
 {$I MyLCL_TrackBar.inc}  //BASECLASS:TWinControl
 {$I MyLCL_ImageList.inc}  //BASECLASS:TComponent
-
+{$I MyLCL_UpDown.inc}  //BASECLASS:TWinControl
