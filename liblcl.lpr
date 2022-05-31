@@ -24,11 +24,7 @@ uses
 {$I ExtDecl.inc}
 {$I LazarusDef.inc}
 
-{$I uExport1.pas}
-{$I uExport2.pas}
-{$I uExport3.pas}
-{$I uExport4.pas}
-{$I uExport5.pas}
+{$I uExport.inc}
 
 // 用户自己定义的组件
 {$I UserDefineComponents.inc}

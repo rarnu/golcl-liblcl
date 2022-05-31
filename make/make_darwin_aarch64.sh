@@ -5,15 +5,20 @@ cd ..
 mkdir -p lib/aarch64-darwin
 mkdir -p release
 
-fpc -Tdarwin -Paarch64 -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
+fpc -Tdarwin -Paarch64 -B -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq \
     -Filib/aarch64-darwin \
     -Fisrc \
     -Fisrc/mylcl \
     -Fisrc/userdefines \
     -Fusrc \
+    -Fusrc/additional \
+    -Fisrc/additional \
+    -Fusrc/chart \
+    -Fisrc/chart \
     -Fusrc/3rdparty/richmemo \
     -Fusrc/3rdparty/ATFlatControls \
     -Fusrc/3rdparty/richmemo/cocoa \
+    -Fusrc/3rdparty/chart \
     -Fulazarus/lcl \
     -Filazarus/lcl \
     -Fulazarus/lcl/interfaces/cocoa \

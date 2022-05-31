@@ -13,6 +13,9 @@
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
     </General>
+    <Res2go>
+      <OutputPath Value="gocode"/>
+    </Res2go>
     <BuildModes>
       <Item Name="Default" Default="True"/>
     </BuildModes>
@@ -48,8 +51,8 @@
       <Filename Value="liblcl"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir);src;src/mylcl;src/userdefines;lazarus/lcl;lazarus/lcl/interfaces/cocoa;lazarus/lcl/include;lazarus/lazutils;lazarus/printers/cocoa;lazarus/datetimectrls;lazarus/synedit"/>
-      <OtherUnitFiles Value="src;src/3rdparty/richmemo;src/3rdparty/ATFlatControls;src/3rdparty/richmemo/cocoa;src/3rdparty/richmemo/win32;lazarus/lazutils;lazarus/synedit;lazarus/lcl;lazarus/lcl/widgetset;lazarus/lcl/nonwin32;lazarus/lcl/forms;lazarus/printers;lazarus/printers/cocoa;lazarus/lcl/interfaces/cocoa;lazarus/datetimectrls"/>
+      <IncludeFiles Value="$(ProjOutDir);src;src/mylcl;src/userdefines;lazarus/lcl;lazarus/lcl/interfaces/cocoa;lazarus/lcl/include;lazarus/lazutils;lazarus/printers/cocoa;lazarus/datetimectrls;lazarus/synedit;src/chart;src/cef"/>
+      <OtherUnitFiles Value="src;src/3rdparty/richmemo;src/3rdparty/ATFlatControls;src/3rdparty/richmemo/cocoa;src/3rdparty/richmemo/win32;lazarus/lazutils;lazarus/synedit;lazarus/lcl;lazarus/lcl/widgetset;lazarus/lcl/nonwin32;lazarus/lcl/forms;lazarus/printers;lazarus/printers/cocoa;lazarus/lcl/interfaces/cocoa;lazarus/datetimectrls;src/additional;src/chart;src/cef;src/3rdparty/chart"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>

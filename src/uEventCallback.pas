@@ -29,7 +29,12 @@ uses
   uLinkLabel,
   SynEdit,
   LCLType,
-  fgl;
+  fgl,
+  TADrawUtils,
+  TALegend,
+  TAChartUtils,
+  TAGraph,
+  TATextElements;
 
 const
   // call最长参数数，与导出的MySyscall一致，暂定为12个
@@ -233,19 +238,32 @@ type
 
     class procedure OnTAcceptFileNameEvent_OnAcceptDirectory(Sender: TObject; var Value: String);
     class procedure OnTNotifyEvent_OnButtonClick(Sender: TObject);
-
     class procedure OnTNotifyEvent_OnColorChanged(Sender: TObject);
-
     class procedure OnTCheckItemChange_OnItemChange(Sender: TObject; AIndex: Integer);
-
-
     class procedure OnTUTF8KeyPressEvent_OnUTF8KeyPress(Sender: TObject; var UTF8Key: TUTF8Char);
-
-
-
     class procedure Add(AObj: TObject; AEvent: Pointer; AId: NativeUInt);
     class procedure Remove(AObj: TObject; AEvent: Pointer);
     class procedure ThreadProc;
+
+    // TChart
+    class procedure OnTChartAfterCustomDrawEvent_OnAfterCustomDrawBackground(Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect);
+    class procedure OnTChartAfterCustomDrawEvent_OnAfterCustomDrawBackWall(Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect);
+    class procedure OnTChartDrawEvent_OnAfterDraw(Sender: TChart; ADrawer: IChartDrawer);
+    class procedure OnTChartAfterDrawEvent_OnAfterDrawBackground(Sender: TChart; ACanvas: TCanvas; const ARect: TRect);
+    class procedure OnTChartAfterDrawEvent_OnAfterDrawBackWall(Sender: TChart; ACanvas: TCanvas; const ARect: TRect);
+    class procedure OnTChartEvent_OnAfterPaint(Sender: TChart);
+    class procedure OnTChartBeforeCustomDrawEvent_OnBeforeCustomDrawBackground(Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect; var ADoDefaultDrawing: Boolean);
+    class procedure OnTChartBeforeDrawEvent_OnBeforeDrawBackground(Sender: TChart; ACanvas: TCanvas; const ARect: TRect; var ADoDefaultDrawing: Boolean);
+    class procedure OnTChartBeforeCustomDrawEvent_OnBeforeCustomDrawBackWall(Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect; var ADoDefaultDrawing: Boolean);
+    class procedure OnTChartBeforeDrawEvent_OnBeforeDrawBackWall(ASender: TChart; ACanvas: TCanvas; const ARect: TRect; var ADoDefaultDrawing: Boolean);
+    class procedure OnTChartDrawLegendEvent_OnDrawLegend(ASender: TChart; ADrawer: IChartDrawer; ALegendItems: TChartLegendItems; ALegendItemSize: TPoint; const ALegendRect: TRect; AColCount, ARowCount: Integer);
+    class procedure OnTChartEvent_OnExtentChanged(ASender: TChart);
+    class procedure OnTChartEvent_OnExtentChanging(ASender: TChart);
+    class procedure OnTChartExtentValidateEvent_OnExtentValidate(Sender: TChart; var ALogicalExtent: TDoubleRect; var AllowChange: Boolean);
+    class procedure OnTChartEvent_OnFullExtentChanged(ASender: TChart);
+    class procedure OnTChartPaintEvent_OnChartPaint(ASender: TChart; const ARect: TRect; var ADoDefaultDrawing: Boolean);
+    class procedure OnTChartGetShapeEvent_OnGetShape(ASender: TChartTextElement; const ABoundingBox: TRect; var APolygon: TPointArray);
+    class procedure OnTChartGetAxisMarkTextEvent_OnGetMarkText(Sender: TObject; var AText: String; AMark: Double);
 
     // 用户定义事件声明
     {$I UserDefineEventsDeclaration.inc}
@@ -319,6 +337,122 @@ end;
 class procedure TEventClass.ThreadProc;
 begin
   GThreadSyncCallbackPtr();
+end;
+
+class procedure TEventClass.OnTChartAfterCustomDrawEvent_OnAfterCustomDrawBackground
+  (Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartAfterCustomDrawEvent_OnAfterCustomDrawBackground, [Sender, ADrawer, @ARect]);
+end;
+
+class procedure TEventClass.OnTChartAfterCustomDrawEvent_OnAfterCustomDrawBackWall
+  (Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartAfterCustomDrawEvent_OnAfterCustomDrawBackWall, [Sender, ADrawer, @ARect]);
+end;
+
+class procedure TEventClass.OnTChartDrawEvent_OnAfterDraw(Sender: TChart;
+  ADrawer: IChartDrawer);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartDrawEvent_OnAfterDraw, [Sender, ADrawer]);
+end;
+
+class procedure TEventClass.OnTChartAfterDrawEvent_OnAfterDrawBackground(
+  Sender: TChart; ACanvas: TCanvas; const ARect: TRect);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartAfterDrawEvent_OnAfterDrawBackground, [Sender, ACanvas, @ARect]);
+end;
+
+class procedure TEventClass.OnTChartAfterDrawEvent_OnAfterDrawBackWall(
+  Sender: TChart; ACanvas: TCanvas; const ARect: TRect);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartAfterDrawEvent_OnAfterDrawBackWall, [Sender, ACanvas, @ARect]);
+end;
+
+class procedure TEventClass.OnTChartEvent_OnAfterPaint(Sender: TChart);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartEvent_OnAfterPaint, [Sender]);
+end;
+
+class procedure TEventClass.OnTChartBeforeCustomDrawEvent_OnBeforeCustomDrawBackground
+  (Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect;
+  var ADoDefaultDrawing: Boolean);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartBeforeCustomDrawEvent_OnBeforeCustomDrawBackground, [Sender, ADrawer, @ARect, @ADoDefaultDrawing]);
+end;
+
+class procedure TEventClass.OnTChartBeforeDrawEvent_OnBeforeDrawBackground(
+  Sender: TChart; ACanvas: TCanvas; const ARect: TRect;
+  var ADoDefaultDrawing: Boolean);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartBeforeDrawEvent_OnBeforeDrawBackground, [Sender, ACanvas, @ARect, @ADoDefaultDrawing]);
+end;
+
+class procedure TEventClass.OnTChartBeforeCustomDrawEvent_OnBeforeCustomDrawBackWall
+  (Sender: TChart; ADrawer: IChartDrawer; const ARect: TRect;
+  var ADoDefaultDrawing: Boolean);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartBeforeCustomDrawEvent_OnBeforeCustomDrawBackWall, [Sender, ADrawer, @ARect, @ADoDefaultDrawing]);
+end;
+
+class procedure TEventClass.OnTChartBeforeDrawEvent_OnBeforeDrawBackWall(
+  ASender: TChart; ACanvas: TCanvas; const ARect: TRect;
+  var ADoDefaultDrawing: Boolean);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartBeforeDrawEvent_OnBeforeDrawBackWall, [ASender, ACanvas, @ARect, @ADoDefaultDrawing]);
+end;
+
+class procedure TEventClass.OnTChartDrawLegendEvent_OnDrawLegend(
+  ASender: TChart; ADrawer: IChartDrawer; ALegendItems: TChartLegendItems;
+  ALegendItemSize: TPoint; const ALegendRect: TRect; AColCount,
+  ARowCount: Integer);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartDrawLegendEvent_OnDrawLegend, [
+    ASender, ADrawer, ALegendItems, Pointer(@ALegendItemSize), @ALegendRect, AColCount, ARowCount]);
+end;
+
+class procedure TEventClass.OnTChartEvent_OnExtentChanged(ASender: TChart);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartEvent_OnExtentChanged, [ASender]);
+end;
+
+class procedure TEventClass.OnTChartEvent_OnExtentChanging(ASender: TChart);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartEvent_OnExtentChanging, [ASender]);
+end;
+
+class procedure TEventClass.OnTChartExtentValidateEvent_OnExtentValidate(
+  Sender: TChart; var ALogicalExtent: TDoubleRect; var AllowChange: Boolean);
+begin
+  SendEvent(Sender, @TEventClass.OnTChartExtentValidateEvent_OnExtentValidate, [Sender, @ALogicalExtent, @AllowChange]);
+end;
+
+class procedure TEventClass.OnTChartEvent_OnFullExtentChanged(ASender: TChart);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartEvent_OnFullExtentChanged, [ASender]);
+end;
+
+class procedure TEventClass.OnTChartPaintEvent_OnChartPaint(ASender: TChart;
+  const ARect: TRect; var ADoDefaultDrawing: Boolean);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartPaintEvent_OnChartPaint, [ASender, @ARect, @ADoDefaultDrawing]);
+end;
+
+class procedure TEventClass.OnTChartGetShapeEvent_OnGetShape(
+  ASender: TChartTextElement; const ABoundingBox: TRect;
+  var APolygon: TPointArray);
+begin
+  SendEvent(ASender, @TEventClass.OnTChartGetShapeEvent_OnGetShape, [ASender, @ABoundingBox, @APolygon]);
+end;
+
+class procedure TEventClass.OnTChartGetAxisMarkTextEvent_OnGetMarkText(
+  Sender: TObject; var AText: String; AMark: Double);
+var
+  LS: PChar;
+begin
+  LS := PChar(AText);
+  SendEvent(Sender, @TEventClass.OnTChartGetAxisMarkTextEvent_OnGetMarkText, [Sender, @LS, AMark]);
+  AText:= LS;
 end;
 
 class procedure TEventClass.SendEvent(Sender: TObject; AEvent: Pointer; AArgs: array of const);
