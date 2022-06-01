@@ -1763,7 +1763,7 @@ begin
   handleExceptionEnd
 end;
 
-function Chart_GetClipRect(AObj: TChart): TRect; extdecl;
+procedure Chart_GetClipRect(AObj: TChart; var Result: TRect); extdecl;
 begin
   handleExceptionBegin
   Result := AObj.ClipRect;
@@ -1883,28 +1883,28 @@ begin
   handleExceptionEnd
 end;
 
-function Chart_GetXGraphMax(AObj: TChart): Double; extdecl;
+procedure Chart_GetXGraphMax(AObj: TChart; var Result: Double); extdecl;
 begin
   handleExceptionBegin
   Result := AObj.XGraphMax;
   handleExceptionEnd
 end;
 
-function Chart_GetXGraphMin(AObj: TChart): Double; extdecl;
+procedure Chart_GetXGraphMin(AObj: TChart; var Result: Double); extdecl;
 begin
   handleExceptionBegin
   Result := AObj.XGraphMin;
   handleExceptionEnd
 end;
 
-function Chart_GetYGraphMax(AObj: TChart): Double; extdecl;
+procedure Chart_GetYGraphMax(AObj: TChart; var Result: Double); extdecl;
 begin
   handleExceptionBegin
   Result := AObj.YGraphMax;
   handleExceptionEnd
 end;
 
-function Chart_GetYGraphMin(AObj: TChart): Double; extdecl;
+procedure Chart_GetYGraphMin(AObj: TChart; var Result: Double); extdecl;
 begin
   handleExceptionBegin
   Result := AObj.YGraphMin;
