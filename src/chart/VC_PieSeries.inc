@@ -241,10 +241,10 @@ begin
   handleExceptionEnd
 end;
 
-function PieSeries_AddPie(AObj: TPieSeries; AValue: Double;AText: String;AColor: TColor): Integer; extdecl;
+function PieSeries_AddPie(AObj: TPieSeries; AValue: Double;AText: PChar;AColor: TColor): Integer; extdecl;
 begin
   handleExceptionBegin
-  Result := AObj.AddPie(AValue,AText,AColor);
+  Result := AObj.AddPie(AValue, string(AText),AColor);
   handleExceptionEnd
 end;
 

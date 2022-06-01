@@ -194,6 +194,13 @@ begin
   Result := TPicture;
 end;
 
+procedure Picture_Clear(AObj: TPicture); extdecl;
+begin
+  handleExceptionBegin
+  AObj.Clear;
+  handleExceptionEnd
+end;
+
 exports
   Picture_Create,
   Picture_Free,
@@ -219,5 +226,6 @@ exports
   Picture_SetIcon,
   Picture_GetWidth,
   Picture_SetOnChange,
-  Picture_StaticClassType;
+  Picture_StaticClassType,
+  Picture_Clear;
 

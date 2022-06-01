@@ -5,5 +5,5 @@ ppas*.sh
 .vscode/
 .idea/
 *.lps
-
-
+backup/
+release/
