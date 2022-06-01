@@ -11,9 +11,14 @@ fpc -Tlinux -Paarch64 -MObjFPC -Scghi -O3 -l -vewnhibq \
     -Fisrc/mylcl \
     -Fisrc/userdefines \
     -Fusrc \
+    -Fusrc/additional \
+    -Fisrc/additional \
+    -Fusrc/chart \
+    -Fisrc/chart \
     -Fusrc/3rdparty/richmemo \
     -Fusrc/3rdparty/ATFlatControls \
     -Fusrc/3rdparty/richmemo/gtk2 \
+    -Fusrc/3rdparty/chart \
     -Fulazarus/lcl \
     -Filazarus/lcl \
     -Fulazarus/lcl/interfaces/gtk2 \
