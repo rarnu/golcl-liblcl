@@ -15,10 +15,14 @@ fpc -Tdarwin -Paarch64 -B -MObjFPC -Scghi -O3 -k-framework -kCocoa -l -vewnhibq 
     -Fisrc/additional \
     -Fusrc/chart \
     -Fisrc/chart \
+    -Fusrc/cef \
+    -Fisrc/cef \
     -Fusrc/3rdparty/richmemo \
     -Fusrc/3rdparty/ATFlatControls \
     -Fusrc/3rdparty/richmemo/cocoa \
     -Fusrc/3rdparty/chart \
+    -Fusrc/3rdparty/cef \
+    -Fisrc/3rdparty/cef \
     -Fulazarus/lcl \
     -Filazarus/lcl \
     -Fulazarus/lcl/interfaces/cocoa \

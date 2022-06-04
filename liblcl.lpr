@@ -24,7 +24,7 @@ uses
 {$I ExtDecl.inc}
 {$I LazarusDef.inc}
 
-{$I uExport.inc}
+{$I uexport.inc}
 
 // 用户自己定义的组件
 {$I UserDefineComponents.inc}

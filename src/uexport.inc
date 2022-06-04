@@ -167,35 +167,7 @@
 {$I MyLCL_SynHighlighterBat.inc}
 {$I MyLCL_SynAnySyn.inc}
 
-{$I VC_Chart.inc}
-{$I VC_ChartMargins.inc}
-{$I VC_ChartRange.inc}
-{$I VC_ChartPen.inc}
-{$I VC_ChartTitle.inc}
-{$I VC_ChartExtent.inc}
-{$I VC_ChartTextElement.inc}
-{$I VC_ChartMinorAxisMarks.inc}
-{$I VC_ChartArrow.inc}
-{$I VC_ChartStyles.inc}
-{$I VC_ChartStyleEnumerator.inc}
-{$I VC_ChartStyleList.inc}
-{$I VC_ChartStyle.inc}
-{$I VC_ChartLegend.inc}
-{$I VC_ChartAxisIntervalParams.inc}
-{$I VC_ChartAxisTitle.inc}
-{$I VC_ChartMinorAxis.inc}
-{$I VC_ChartMinorAxisList.inc}
-{$I VC_ChartAxis.inc}
-{$I VC_ChartAxisList.inc}
-{$I VC_ChartSeriesList.inc}
-{$I VC_BasicChartSeries.inc}
-{$I VC_ChartErrorBar.inc}
-{$I VC_ChartSeriesLegend.inc}
-{$I VC_ChartShadow.inc}
-{$I VC_SeriesPointer.inc}
-{$I VC_ChartExprParam.inc}
-{$I VC_ChartExprParams.inc}
-{$I VC_PieSeries.inc}
-{$I VC_ChartMarks.inc}
-
+{$I CEF_Global.inc}
+{$I CEF_ChromeWindow.inc}
+{$I CEF_Chrome.inc}
 
