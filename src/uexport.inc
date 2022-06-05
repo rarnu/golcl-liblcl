@@ -170,4 +170,6 @@
 {$I CEF_Global.inc}
 {$I CEF_ChromeWindow.inc}
 {$I CEF_Chrome.inc}
-
+{$I CEF_ChromiumOptions.inc}
+{$I CEF_ChromiumFontOptions.inc}
+{$I CEF_PDFPrintOptions.inc}
