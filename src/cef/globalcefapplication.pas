@@ -73,6 +73,7 @@ end;
 
 procedure InitGlobalCEFApp;
 begin
+  {$IFDEF DARWIN}
   AddCrDelegate;
   if GlobalCEFApp = nil then begin
     CreateGlobalCEFApp;
@@ -82,14 +83,17 @@ begin
       halt(0); // exit the subprocess
     end;
   end;
+  {$ENDIF}
 end;
 
 procedure FinalGlobalCEFApp;
 begin
+  {$IFDEF DARWIN}
   if GlobalCEFWorkScheduler <> nil then
     GlobalCEFWorkScheduler.StopScheduler;
   DestroyGlobalCEFApp;
   DestroyGlobalCEFWorkScheduler;
+  {$ENDIF}
 end;
 
 end.

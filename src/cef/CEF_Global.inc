@@ -1,4 +1,17 @@
 
+function CefApplication_GetGlobalCEFApp(): TCefApplication; extdecl;
+begin
+  handleExceptionBegin
+  Result := GlobalCEFApp;
+  handleExceptionEnd
+end;
+
+procedure CefApplication_SetGlobalCEFApp(App: TCefApplication); extdecl;
+begin
+  handleExceptionBegin
+  GlobalCEFApp := App;
+  handleExceptionEnd
+end;
 
 function CefApplication_Create(): TCefApplication; extdecl;
 begin
@@ -204,6 +217,8 @@ begin
 end;
 
 exports
+  CefApplication_GetGlobalCEFApp,
+  CefApplication_SetGlobalCEFApp,
   CefApplication_Create,
   CefApplication_Free,
   CefApplication_StartMainProcess,

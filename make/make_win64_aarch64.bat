@@ -13,10 +13,14 @@ fpc -Twin64 -Paarch64 -MObjFPC -Scghi -O3 -l -vewnhibq -WG ^
     -Fisrc/additional ^
     -Fusrc/chart ^
     -Fisrc/chart ^
+    -Fusrc/cef ^
+    -Fisrc/cef ^
     -Fusrc\3rdparty\richmemo ^
     -Fusrc\3rdparty\ATFlatControls ^
     -Fusrc\3rdparty\richmemo/win32 ^
     -Fusrc/3rdparty/chart ^
+    -Fusrc/3rdparty/cef ^
+    -Fisrc/3rdparty/cef ^
     -Fulazarus\lcl ^
     -Filazarus\lcl ^
     -Fulazarus\lcl\interfaces\win32 ^
