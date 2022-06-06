@@ -87,6 +87,7 @@
   uCEFChromiumOptions,
   uCEFChromiumFontOptions,
   uCEFPDFPrintOptions,
+  CefBrowser,
   //
   LCLStrConsts,
 {$I UserDefineComponentUses.inc}

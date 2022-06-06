@@ -252,7 +252,7 @@ type
     class procedure OnTOnPrefsAvailableEvent_OnPrefsAvailable(Sender: TObject; AResultOK : boolean);
     class procedure OnTOnCookiesDeletedEvent_OnCookiesDeleted(Sender: TObject; numDeleted : integer);
     class procedure TOnCookieSet_OnCookieSet(Sender: TObject; aSuccess : boolean; aID : integer);
-
+    class procedure OnTNotifyEvent_OnInitComplete(Sender: TObject);
 
     // 用户定义事件声明
     {$I UserDefineEventsDeclaration.inc}
@@ -1374,6 +1374,11 @@ end;
 class procedure TEventClass.TOnCookieSet_OnCookieSet(Sender: TObject; aSuccess : boolean; aID : integer);
 begin
   SendEvent(Sender, @TEventClass.TOnCookieSet_OnCookieSet, [Sender, aSuccess, aID]);
+end;
+
+class procedure TEventClass.OnTNotifyEvent_OnInitComplete(Sender: TObject);
+begin
+  SendEvent(Sender, @TEventClass.OnTNotifyEvent_OnInitComplete, [Sender]);
 end;
 
 

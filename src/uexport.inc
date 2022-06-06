@@ -173,3 +173,4 @@
 {$I CEF_ChromiumOptions.inc}
 {$I CEF_ChromiumFontOptions.inc}
 {$I CEF_PDFPrintOptions.inc}
+{$I CEF_Browser.inc}
