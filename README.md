@@ -1,11 +1,5 @@
 # golcl-liblcl
 
-A common cross-platform GUI library, it's re-maked according to ```ying32```'s [LIBLCL](https://github.com/ying32/liblcl). A lot of thanks to origin author.
+跨平台，跨架构的 Golang 可视化组件库，LCL 动态库
 
-### Compile
-
-You may use the compiling-scripts under ```make``` folder and run them on associated platform or use a corss compile.
-
-### Plan
-
-Pascal Script and SynEdit will be add soon.
+编译方法: 安装 FPC 后，执行 make 目录内对应的构建脚本来进行编译 

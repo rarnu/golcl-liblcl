@@ -106,6 +106,7 @@ begin
   FTimer := TTimer.Create(AOwnerParent);
   FTimer.Enabled:= False;
   FTimer.OnTimer:=@TimerFired;
+  FTimer.Enabled:= True;
 end;
 
 destructor TBrowser.Destroy;
